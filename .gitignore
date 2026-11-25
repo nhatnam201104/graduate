@@ -1,0 +1,33 @@
+# Python & FastAPI
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node / Vite / Web 3D
+node_modules/
+web/dist/
+*.local
+
+# TouchDesigner runtime / backup / heavy media (keep .tox & scripts/shaders/presets)
+td/Backup/
+*.toe.bak
+td/exports/*.mp4
+td/exports/*.mov
+td/exports/*.exr
+
+# Biometric & Guest Private Data (NEVER commit real guest faces, embeddings, or DB)
+data/
+*.db
+*.db-wal
+*.db-shm
+.env
+.env.*
+!.env.example
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

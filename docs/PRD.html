@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PRD — Thiệp Mời Tốt Nghiệp 3D Đa Chiều (TouchDesigner + Desktop Web 3D)</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --bg: #0b0e17;
+      --surface: #121726;
+      --surface-2: #181f33;
+      --border: #26314d;
+      --text: #eef2ff;
+      --muted: #9aa7c7;
+      --accent: #7c6bff;
+      --accent-2: #38bdf8;
+      --gold: #f5c469;
+      --ok: #34d399;
+      --warn: #fbbf24;
+      --code-bg: #090c14;
+    }
+    [data-theme="light"] {
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --surface-2: #f1f4fa;
+      --border: #d9e0ef;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #5b46f6;
+      --accent-2: #0284c7;
+      --gold: #b45309;
+      --ok: #059669;
+      --warn: #d97706;
+      --code-bg: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 24px 18px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+    }
+    .brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 6px;
+    }
+    .brand-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0 0 16px;
+    }
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .nav-list a {
+      display: block;
+      padding: 7px 10px;
+      border-radius: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-list a:hover {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+    .theme-btn {
+      margin-top: 18px;
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    main {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 40px 80px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(124, 107, 255, 0.18), rgba(56, 189, 248, 0.08));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 30px;
+      margin-bottom: 28px;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--accent-2);
+    }
+    .badge.gold { color: var(--gold); }
+    .badge.ok { color: var(--ok); }
+    h1 { font-size: 28px; margin: 0 0 10px; line-height: 1.28; }
+    .lead { color: var(--muted); font-size: 15px; margin: 0; }
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 26px;
+      margin-bottom: 22px;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 0 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    h3 { font-size: 15.5px; margin: 18px 0 8px; color: var(--accent-2); }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .card-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+    .card p { margin: 0; font-size: 13.5px; color: var(--muted); }
+    .kpi-val { font-size: 20px; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin-top: 8px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th {
+      background: var(--surface-2);
+      font-weight: 700;
+      color: var(--text);
+    }
+    code {
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 12.5px;
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+    }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+    pre code { border: none; padding: 0; background: transparent; }
+    .mermaid-wrap {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: rgba(124, 107, 255, 0.09);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 13.5px;
+    }
+    .callout.warn {
+      border-left-color: var(--warn);
+      background: rgba(251, 191, 36, 0.09);
+    }
+    .ac-check { cursor: pointer; transform: scale(1.15); }
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+      main { padding: 20px; }
+      .grid-2, .grid-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="brand">TDGRAD · PRD v1.0.0</div>
+      <h2 class="brand-title" style="border:none;padding:0;font-size:17px;">3D Graduation Invitation</h2>
+      <ul class="nav-list">
+        <li><a href="#summary">1. Tóm tắt &amp; 12 Quyết định</a></li>
+        <li><a href="#architecture">2. Kiến trúc Hệ thống</a></li>
+        <li><a href="#sequence">3. Luồng Dual Face-Key</a></li>
+        <li><a href="#stack">4. Stack Công nghệ</a></li>
+        <li><a href="#themelab">5. Trải nghiệm 4 Hồi &amp; Theme Lab</a></li>
+        <li><a href="#facedna">6. Hợp đồng FaceDNA &amp; TD↔WebGL2</a></li>
+        <li><a href="#data-api">7. Data Model (ERD) &amp; API</a></li>
+        <li><a href="#security-ops">8. Bảo mật, 4K &amp; VPS Azure</a></li>
+        <li><a href="#ac">9. Tiêu chí Chấp nhận (AC-01..12)</a></li>
+        <li><a href="#roadmap">10. Lộ trình 4 Phases</a></li>
+      </ul>
+      <button class="theme-btn" id="themeToggle" type="button">Đổi giao diện Sáng / Tối</button>
+    </aside>
+
+    <main>
+      <header class="hero">
+        <div class="badges">
+          <span class="badge ok">Desktop-Only Web 3D</span>
+          <span class="badge">TouchDesigner + WebGL2 (R3F)</span>
+          <span class="badge gold">Dual Face-Key (1:N + Visual DNA)</span>
+          <span class="badge">VPS Azure · grad.nnamtech.dev</span>
+        </div>
+        <h1>PRD — Thiệp Mời Tốt Nghiệp 3D Đa Chiều Cá Nhân Hóa Theo Khuôn Mặt</h1>
+        <p class="lead">
+          Đặc tả kiến trúc và công nghệ chi tiết cho dự án <code>td-grad-invitation</code>: nhóm thân mật &lt; 20 khách mời, 1 đường dẫn chung duy nhất,
+          khuôn mặt vừa mở khóa lời chúc &amp; ảnh kỷ niệm riêng vừa sinh ra một tác phẩm 3D độc bản (tất định) kèm Theme Lab thử nghiệm 4 phong cách và xuất ảnh lưu niệm 4K.
+        </p>
+      </header>
+
+      <section id="summary">
+        <h2>1. Tóm tắt &amp; 12 Quyết định kiến trúc đã chốt</h2>
+        <div class="grid-4" style="margin-bottom: 16px;">
+          <div class="card">
+            <div class="kpi-val">&lt; 20 khách</div>
+            <div class="card-title">Cá nhân hóa cực sâu</div>
+            <p>Lời chúc riêng, ảnh kỷ niệm chung, mã DNA 3D độc bản &amp; RSVP.</p>
+          </div>
+          <div class="card">
+            <div class="kpi-val">1.5 – 2.5s</div>
+            <div class="card-title">Tốc độ mở khóa</div>
+            <p>MediaPipe 60fps phía client + YuNet/SFace/MiniFASNet trên CPU server.</p>
+          </div>
+          <div class="card">
+            <div class="kpi-val">60 FPS / 4K</div>
+            <div class="card-title">Đồ họa máy tính</div>
+            <p>WebGL2 React Three Fiber, chặn mobile, xuất ảnh lưu niệm 3840×2160.</p>
+          </div>
+          <div class="card">
+            <div class="kpi-val">4 Themes</div>
+            <div class="card-title">Theme Lab nội bộ</div>
+            <p>Thử nghiệm trực quan 4 Art Direction trước khi chốt gửi khách.</p>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>#</th><th>Hạng mục</th><th>Quyết định đã chốt</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Q1</td><td>Quy mô</td><td>Nhóm nhỏ thân mật (&lt; 20 khách), cá nhân hóa cực sâu cho từng người.</td></tr>
+            <tr><td>Q2</td><td>Art Direction</td><td>Xây dựng <strong>Theme Lab</strong> thử nghiệm cả 4 phong cách 3D trước khi chọn bản chính thức.</td></tr>
+            <tr><td>Q3</td><td>Tính năng thiệp</td><td>Gói đầy đủ: Lời chúc riêng, Ảnh kỷ niệm chung, Chi tiết lễ/Bản đồ/Dress code, Form RSVP, Nhạc nền phản ứng 3D, Chụp thiệp 4K.</td></tr>
+            <tr><td>Q4</td><td>Link truy cập</td><td>1 link chung duy nhất (<code>https://grad.nnamtech.dev</code>) tự nhận diện 1:N bằng khuôn mặt.</td></tr>
+            <tr><td>Q5</td><td>Kiến trúc Face Match</td><td>Hybrid: MediaPipe Face Landmarker (client 60fps) + YuNet &amp; SFace (FastAPI server CPU).</td></tr>
+            <tr><td>Q6</td><td>Quản trị</td><td>Trang Admin nội bộ: CRUD &lt; 20 khách, upload 1–5 ảnh mẫu, lời chúc, ảnh kỷ niệm, RSVP &amp; Theme Lab.</td></tr>
+            <tr><td>Q7</td><td>Ngoại lệ &amp; Người lạ</td><td>Không có webcam → Upload ảnh; Ánh sáng yếu → Passcode dự phòng; Người lạ → mở "Thiệp Khách Đặc Biệt" 3D độc bản (ẩn tuyệt đối dữ liệu riêng tư).</td></tr>
+            <tr><td>Q8</td><td>Anti-Spoofing &amp; Bảo mật</td><td>Tư thế nhẹ + MiniFASNet thụ động, mã hóa embedding <code>AES-256-GCM</code>, không lưu ảnh webcam, ảnh kỷ niệm qua Signed URL theo phiên.</td></tr>
+            <tr><td>Q9</td><td>Vai trò TouchDesigner</td><td>Visual Authoring &amp; Shader/Asset Engine (dùng TD Non-Commercial miễn phí thiết kế 4 theme/GLSL/presets, xuất sang WebGL2 4K không giới hạn độ phân giải).</td></tr>
+            <tr><td>Q10</td><td>Tech Stack</td><td>React + TypeScript + Vite + Three.js (R3F/Drei/Postprocessing/GLSL3) + FastAPI (Python) + SQLite WAL.</td></tr>
+            <tr><td>Q11</td><td>Hạ tầng &amp; Hiệu năng</td><td>VPS Azure <code>4.240.106.59</code> + Caddy Auto HTTPS (<code>grad.nnamtech.dev</code>), 3–10 khách đồng thời, 60fps trên laptop iGPU.</td></tr>
+            <tr><td>Q12</td><td>Đầu ra</td><td><code>docs/PRD.md</code>, <code>docs/PRD.html</code> và đồng bộ Shared Team Memory <code>dept:td-grad-invitation</code>.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="architecture">
+        <h2>2. Kiến trúc tổng thể hệ thống</h2>
+        <div class="mermaid-wrap">
+          <div class="mermaid">
+flowchart LR
+    subgraph Authoring["1. Visual Authoring (Offline — TouchDesigner)"]
+        TD["TouchDesigner (.toe / .tox)\nPython DAT + GLSL TOP/MAT"]
+        PRESET["td/presets/*.json\nshader-uniforms.schema.json"]
+        SHADERS["td/shaders/*.glsl\nPortable GLSL Core"]
+        ASSETS["td/exports/\nLUT / Noise / Normal Maps"]
+        TD --> PRESET
+        TD --> SHADERS
+        TD --> ASSETS
+    end
+
+    subgraph Client["2. Desktop-Only Web 3D Client (React + R3F + WebGL2)"]
+        GATE["Desktop-Only Gate\n(>=1024px + Fine Pointer + WebGL2)"]
+        MP["MediaPipe Face Landmarker\n(60fps alignment + quality)"]
+        R3F["Three.js / R3F Engine\n4 Themes + GLSL3 + 4K Export"]
+        AUDIO["Web Audio API\nFFT -> Shader Uniforms"]
+        GATE --> MP --> R3F
+        AUDIO --> R3F
+    end
+
+    subgraph VPS["3. VPS Azure 4.240.106.59 (Caddy + FastAPI)"]
+        CADDY["Caddy Auto HTTPS\ngrad.nnamtech.dev"]
+        API["FastAPI Backend\nUnlock / RSVP / Media / Admin"]
+        AI["CPU Face AI\nYuNet + SFace + MiniFASNet"]
+        DNA["Deterministic FaceDNA\nHKDF-SHA256 -> Bounded Uniforms"]
+        DB[("SQLite WAL\nAES-256-GCM Embeddings")]
+        CADDY --> API --> AI --> DNA
+        API --> DB
+    end
+
+    PRESET -. "1:1 Uniform Parity" .-> R3F
+    SHADERS -. "GLSL3 Import" .-> R3F
+    ASSETS -. "Static Assets" .-> R3F
+    Client <== "HTTPS / JSON / Signed Media" ==> CADDY
+          </div>
+        </div>
+        <div class="callout">
+          <strong>Nguyên tắc Git-Native:</strong> Không nhúng logic hay shader vào file <code>.toe</code> nhị phân. Mọi Python DAT (<code>td/scripts/</code>), GLSL (<code>td/shaders/</code>) và JSON schema (<code>td/presets/</code>) đều tách thành file text để đội ngũ AI và lập trình viên review diff và test parity tự động.
+        </div>
+      </section>
+
+      <section id="sequence">
+        <h2>3. Luồng tương tác Dual Face-Key (Sequence)</h2>
+        <div class="mermaid-wrap">
+          <div class="mermaid">
+sequenceDiagram
+    actor Guest as Khách mời (Desktop)
+    participant Gate as Desktop Gate &amp; MediaPipe
+    participant API as FastAPI (grad.nnamtech.dev)
+    participant AI as YuNet + SFace + MiniFASNet
+    participant DNA as FaceDNA Engine
+    participant DB as SQLite WAL
+
+    Guest->>Gate: Mở https://grad.nnamtech.dev
+    Gate->>Gate: Kiểm tra Desktop (>=1024px, fine pointer, WebGL2)
+    alt Mobile / Tablet / Thiếu WebGL2
+        Gate-->>Guest: Hiển thị Desktop-Only Gate + Copy Link
+    else Máy tính hợp lệ
+        Gate-->>Guest: Act 1 — Màn chào &amp; Camera Consent
+        Guest->>Gate: Bật Camera (hoặc Upload ảnh / Passcode)
+        Gate->>API: POST /api/v1/unlock/face (2 JPEG frames đẹp nhất)
+        API->>AI: YuNet -> SFace 128-D -> MiniFASNet Liveness
+        AI->>DB: Giải mã embedding &lt;20 khách &amp; so khớp 1:N
+        alt Khớp khách (top1 >= 0.44 &amp; margin >= 0.07 &amp; live)
+            AI->>DNA: Sinh FaceDNA tất định từ canonical_embedding
+            API-->>Gate: 200 OK { mode: "guest", faceDna, invitation, signedMemoryUrls }
+            Gate-->>Guest: Morph 3D độc bản + Lời chúc + Kỷ niệm + RSVP + 4K
+        else Người ngoài danh sách
+            AI->>DNA: Sinh FaceDNA từ embedding hiện tại
+            API-->>Gate: 200 OK { mode: "special_visitor", faceDna, publicInfo }
+            Gate-->>Guest: Mở Thiệp Khách Đặc Biệt 3D (ẩn dữ liệu riêng tư)
+        else Ảnh mờ / thiếu sáng / mơ hồ
+            API-->>Gate: 422 { guidance, allowPasscodeFallback: true }
+            Gate-->>Guest: Gợi ý chỉnh sáng hoặc nhập Passcode dự phòng
+        end
+    end
+          </div>
+        </div>
+      </section>
+
+      <section id="stack">
+        <h2>4. Ma trận Stack Công nghệ</h2>
+        <table>
+          <thead>
+            <tr><th>Tầng</th><th>Công nghệ</th><th>Mục đích &amp; Vai trò</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Visual Authoring</td><td><code>TouchDesigner (Non-Commercial)</code></td><td>Thiết kế 4 theme 3D, GLSL shaders, procedural textures/LUT &amp; camera curves; xuất JSON/GLSL sang WebGL2.</td></tr>
+            <tr><td>Frontend Core</td><td><code>React 19 + TypeScript + Vite 6</code></td><td>App Desktop Web 3D, Desktop Gate, Theme Lab và trang Admin nội bộ.</td></tr>
+            <tr><td>3D &amp; Shaders</td><td><code>Three.js + R3F + Drei + Postprocessing + GLSL3</code></td><td>Render WebGL2 60fps, PBR glass/iridescence, GPU instancing, Bloom và xuất ảnh 4K offscreen.</td></tr>
+            <tr><td>Audio &amp; Face UX</td><td><code>Web Audio API</code> + <code>MediaPipe Face Landmarker</code></td><td>Phân tích FFT 3 dải tần phản ứng 3D + căn chỉnh khuôn mặt 60fps ngay trên trình duyệt.</td></tr>
+            <tr><td>Backend &amp; AI</td><td><code>FastAPI (Python 3.12) + YuNet + SFace + MiniFASNet</code></td><td>Tái sử dụng lõi thương mại sạch (MIT/Apache-2.0) chạy CPU ~40–80ms/frame, API Unlock/Admin/RSVP.</td></tr>
+            <tr><td>Lưu trữ &amp; Bảo mật</td><td><code>SQLite WAL + AES-256-GCM + HMAC-SHA256</code></td><td>Mã hóa embedding nghỉ, Signed URL 30 phút cho ảnh kỷ niệm, rate limit chống brute-force.</td></tr>
+            <tr><td>Hạ tầng</td><td><code>VPS Azure 4.240.106.59 + Caddy + systemd</code></td><td>Subdomain <code>grad.nnamtech.dev</code> Auto HTTPS song song <code>nnamtech.dev</code>.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="themelab">
+        <h2>5. Trải nghiệm 4 Hồi &amp; 4 Phong cách trong Theme Lab</h2>
+        <div class="grid-4" style="margin-bottom: 16px;">
+          <div class="card">
+            <div class="card-title">Hồi 1 · Arrival &amp; Consent</div>
+            <p>Desktop Gate → lời chào, thông báo quyền riêng tư và chọn Camera / Upload ảnh / Passcode.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Hồi 2 · Face-Key Morph</div>
+            <p>Khung ngắm 468 điểm MediaPipe → xác thực 1.5–2.5s → hạt ánh sáng tụ thành khối 3D độc bản.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Hồi 3 · 3D Exploration</div>
+            <p>Xoay/zoom mượt 60fps, phím tắt <code>R</code>/<code>Space</code>/<code>1-3</code>/<code>M</code>, parallax và nhạc nền FFT.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Hồi 4 · Card, RSVP &amp; 4K</div>
+            <p>Lời chúc riêng, ảnh kỷ niệm Signed URL, bản đồ/<code>.ics</code>, gửi RSVP và tải ảnh 4K PNG.</p>
+          </div>
+        </div>
+
+        <h3>Ma trận 4 Theme thử nghiệm trong Admin → Theme Lab</h3>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">1. <code>crystal-glass</code> — Bioluminescent Crystal &amp; Cosmic Glass</div>
+            <p>Nền tối sâu, pha lê/kính khúc xạ phát quang + Fresnel/iridescence + dải hạt vũ trụ + Bloom mềm.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">2. <code>editorial-gallery</code> — Minimal Architectural Gallery</div>
+            <p>Không gian bảo tàng sáng (trắng/kem/đá mờ), điêu khắc trừu tượng ánh sáng studio &amp; typography tạp chí.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">3. <code>cyber-audio</code> — Cybernetic Audio-Reactive Sculpture</div>
+            <p>Point-cloud 20k–35k hạt GPU instancing, sóng curl-noise và lưới vector nhảy theo bass/treble nhạc nền.</p>
+          </div>
+          <div class="card">
+            <div class="card-title">4. <code>multi-archetype</code> — Multi-Archetype Generative DNA</div>
+            <p>Tự chọn 1 trong 5 hình thái 3D độc lập (<code>crystalline_prism</code>, <code>orbital_ribbon</code>, <code>celestial_lattice</code>, <code>origami_monolith</code>, <code>aurora_sculpt</code>) theo FaceDNA.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="facedna">
+        <h2>6. Hợp đồng FaceDNA &amp; Đồng bộ TouchDesigner ↔ WebGL2</h2>
+        <p>
+          Mã <code>FaceDNA</code> được sinh tất định bằng <code>HKDF-SHA256(canonical_embedding, edition_salt, guest_id)</code> rồi ánh xạ qua không gian thiết kế có kiểm soát (curated archetypes + bảng màu OKLCH đảm bảo tương phản ≥ 4.5:1 + uniform kẹp biên chống <code>NaN</code>).
+        </p>
+        <pre><code>{
+  "schemaVersion": "1.0",
+  "dnaCode": "FG-7A9C-2026",
+  "mode": "guest",
+  "themeId": "crystal-glass",
+  "archetype": "crystalline_prism",
+  "palette": {
+    "id": "midnight-gold-aurora",
+    "bgHex": "#070914",
+    "primaryHex": "#7C6BFF",
+    "accentHex": "#F5C469",
+    "highlightHex": "#67E8F9",
+    "textHex": "#F8FAFC"
+  },
+  "uniforms": {
+    "uSeed": 0.7421, "uNoiseFreq": 1.85, "uDisplacement": 0.34,
+    "uCrystalFacets": 7, "uIridescence": 0.68, "uFresnelPower": 2.45,
+    "uParticleDensity": 0.76, "uOrbitSpeed": 0.42, "uBloomStrength": 0.65,
+    "uAudioReactivity": 0.55
+  }
+}</code></pre>
+      </section>
+
+      <section id="data-api">
+        <h2>7. Data Model (SQLite WAL) &amp; API Chính</h2>
+        <div class="mermaid-wrap">
+          <div class="mermaid">
+erDiagram
+    EVENT_SETTINGS {
+        int id PK
+        string title
+        string graduate_name
+        string ceremony_datetime
+        string active_theme_id
+        string edition_salt
+    }
+    GUESTS {
+        string id PK
+        string slug UK
+        string full_name
+        string personal_message
+        string passcode_hash
+        string theme_override
+        blob canonical_embedding_enc
+    }
+    GUEST_FACE_SAMPLES {
+        int id PK
+        string guest_id FK
+        blob embedding_enc
+        float quality_score
+    }
+    GUEST_MEMORIES {
+        int id PK
+        string guest_id FK
+        string storage_key
+        string caption
+    }
+    RSVPS {
+        int id PK
+        string guest_id FK
+        string status
+        int companions
+        string guest_note
+    }
+    UNLOCK_SESSIONS {
+        string token_hash PK
+        string guest_id FK
+        string mode
+        datetime expires_at
+    }
+    GUESTS ||--o{ GUEST_FACE_SAMPLES : "1..5"
+    GUESTS ||--o{ GUEST_MEMORIES : "0..6"
+    GUESTS ||--o| RSVPS : "0..1"
+    GUESTS ||--o{ UNLOCK_SESSIONS : "sessions"
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Method &amp; Endpoint</th><th>Quyền</th><th>Vai trò</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>GET /api/v1/health</code> · <code>/api/v1/event/public</code></td><td>Public</td><td>Health check model ONNX &amp; thông tin mở đầu sự kiện.</td></tr>
+            <tr><td><code>POST /api/v1/unlock/face</code></td><td>Public + Rate Limit</td><td>Nhận 1–2 JPEG frames → YuNet/SFace/MiniFASNet → trả <code>guest</code> hoặc <code>special_visitor</code> + <code>FaceDNA</code>.</td></tr>
+            <tr><td><code>POST /api/v1/unlock/passcode</code></td><td>Public + Rate Limit</td><td>Mở khóa dự phòng bằng Passcode (giới hạn 5 lần/15 phút/IP).</td></tr>
+            <tr><td><code>GET /api/v1/media/{id}?sig=&amp;exp=</code></td><td>Signed URL (30m)</td><td>Trả ảnh kỷ niệm riêng của đúng khách trong phiên.</td></tr>
+            <tr><td><code>POST /api/v1/rsvp</code></td><td>Session Token</td><td>Gửi xác nhận tham dự &amp; lời nhắn chúc mừng.</td></tr>
+            <tr><td><code>/api/v1/admin/*</code></td><td>Admin Auth</td><td>CRUD khách, upload 1–5 ảnh mẫu, upload ảnh kỷ niệm, <code>dna-preview</code> cho Theme Lab, đặt Active Theme &amp; xuất CSV RSVP.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="security-ops">
+        <h2>8. Bảo mật sinh trắc học, Xuất ảnh 4K &amp; Hạ tầng VPS Azure</h2>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">Bảo mật &amp; Quyền riêng tư</div>
+            <p>
+              Embedding nghỉ mã hóa <code>AES-256-GCM</code> (<code>GRAD_BIOMETRIC_KEY</code> mode <code>0600</code>); ảnh webcam xử lý trên RAM và hủy ngay (không lưu đĩa); ảnh kỷ niệm nằm ngoài thư mục public và bảo vệ bằng Signed URL 30 phút; không lộ danh sách khách ra client.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Deploy song song trên VPS <code>4.240.106.59</code></div>
+            <p>
+              Thêm bản ghi DNS <code>A</code> <code>grad.nnamtech.dev → 4.240.106.59</code> và block Caddy <code>reverse_proxy 127.0.0.1:8100</code>. Chạy systemd <code>td-grad-invitation.service</code> ~300 MB RAM, không đụng <code>nnamtech.dev</code> (port 8090).
+            </p>
+          </div>
+        </div>
+        <div class="callout warn">
+          <strong>Xuất ảnh lưu niệm 4K (<code>3840×2160</code>):</strong> Sử dụng offscreen <code>WebGLRenderTarget</code> tạm thời 1 frame duy nhất + ghép khung chữ ký nghệ thuật trên 2D canvas rồi <code>.dispose()</code> ngay để không gây tràn VRAM trên laptop iGPU.
+        </div>
+      </section>
+
+      <section id="ac">
+        <h2>9. Bảng Tiêu chí Chấp nhận (Acceptance Criteria — AC-01..12)</h2>
+        <table>
+          <thead>
+            <tr><th style="width:44px;">Duyệt</th><th style="width:74px;">ID</th><th>Tiêu chí chấp nhận</th><th>Cách chứng minh</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-01</code></td><td>Chặn mobile/tablet/&lt;1024px/thiếu WebGL2 trước khi khởi tạo 3D/webcam, hiện Desktop-Only Gate + Copy link.</td><td><code>desktopGate.test.ts</code> + Playwright viewport test</td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-02</code></td><td>Admin thêm khách &amp; 1–5 ảnh mẫu → lưu SFace embedding mã hóa AES-256-GCM + canonical embedding.</td><td><code>test_admin_enrollment.py</code></td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-03</code></td><td><code>FaceDNA</code> tất định 100% cho cùng 1 khách và khác biệt rõ nét giữa các khách khác nhau.</td><td><code>test_face_dna.py</code> (20 synthetic vectors)</td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-04</code></td><td>Khớp mặt đúng (<code>top1≥0.44</code>, <code>margin≥0.07</code>, liveness đạt) trả về <code>mode="guest"</code> + dữ liệu riêng trong &lt; 2.5s.</td><td><code>test_unlock_face.py</code> + kiểm tra không ghi file ảnh</td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-05</code></td><td>Người lạ mở được <code>mode="special_visitor"</code> với 3D độc bản nhưng ẩn hoàn toàn dữ liệu riêng tư.</td><td><code>test_unlock_visitor_isolation.py</code></td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-06</code></td><td>Hoạt động dự phòng qua Upload ảnh &amp; Passcode; sai Passcode &gt; 5 lần bị rate-limit HTTP 429.</td><td><code>test_unlock_passcode_ratelimit.py</code></td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-07</code></td><td>Signed URL ảnh kỷ niệm hết hạn hoặc bị sửa tham số trả về HTTP 403.</td><td><code>test_signed_media.py</code></td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-08</code></td><td>Khách gửi RSVP lưu theo phiên, hiện trên Admin và xuất CSV chống formula injection.</td><td><code>test_rsvp_and_csv.py</code></td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-09</code></td><td>Chuyển 4 Theme trong Theme Lab không lỗi GLSL/console, ổn định FPS và <code>.dispose()</code> sạch GPU.</td><td><code>npm run build</code> + kiểm tra trên laptop iGPU</td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-10</code></td><td>Xuất ảnh lưu niệm đúng <code>3840×2160</code> PNG kèm tên khách &amp; mã DNA không mất WebGL context.</td><td>Kiểm thử thực tế Chrome/Edge Desktop</td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-11</code></td><td>Uniform trong <code>td/shaders/</code>, <code>shader-uniforms.schema.json</code> và <code>web/</code> khớp 1:1.</td><td><code>test_shader_parity.py</code></td></tr>
+            <tr><td><input class="ac-check" type="checkbox" /></td><td><code>AC-12</code></td><td>Deploy tại <code>https://grad.nnamtech.dev</code> HTTPS hợp lệ, không ảnh hưởng <code>https://nnamtech.dev</code>.</td><td><code>curl -I</code> kiểm chứng cả 2 domain</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="roadmap">
+        <h2>10. Lộ trình 4 Phases (Khớp Đội ngũ <code>td-grad-invitation</code>)</h2>
+        <table>
+          <thead>
+            <tr><th>Phase</th><th>Nội dung chính</th><th>Vai trò phụ trách</th><th>Đầu ra</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Phase 1</strong></td><td>Backend FastAPI + SQLite WAL + AES-256-GCM + YuNet/SFace/MiniFASNet + FaceDNA + API Unlock/Signed Media.</td><td><code>tdgrad-creative-qa-architect</code> → <code>tdgrad-face-key-engineer</code></td><td>Pass <code>AC-02</code>–<code>AC-08</code></td></tr>
+            <tr><td><strong>Phase 2</strong></td><td>TouchDesigner GLSL/Python DAT/Presets + React R3F + Desktop-Only Gate + <strong>Theme Lab (4 Themes)</strong>.</td><td><code>tdgrad-touchdesigner-glsl</code> + <code>tdgrad-web3d-desktop</code></td><td>Pass <code>AC-01</code>, <code>AC-09</code>, <code>AC-11</code></td></tr>
+            <tr><td><strong>Phase 3</strong></td><td>Hoàn thiện 4 Hồi (MediaPipe 60fps, Audio FFT, Gallery, <code>.ics</code>, RSVP, Xuất ảnh 4K) + Admin Portal.</td><td><code>tdgrad-web3d-desktop</code> + <code>tdgrad-face-key-engineer</code></td><td>Pass <code>AC-08</code>, <code>AC-10</code></td></tr>
+            <tr><td><strong>Phase 4</strong></td><td>Independent QA, Security/Shader Review, Deploy <code>grad.nnamtech.dev</code> trên VPS Azure &amp; chốt Theme gửi khách.</td><td><code>tdgrad-qa-tester</code> → <code>tdgrad-senior-reviewer</code> → <code>tdgrad-delivery-coord</code></td><td>Go-live <code>AC-12</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: "dark", securityLevel: "loose" });
+    const btn = document.getElementById("themeToggle");
+    btn.addEventListener("click", () => {
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      document.documentElement.setAttribute("data-theme", isLight ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>
