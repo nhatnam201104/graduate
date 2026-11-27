@@ -11,7 +11,8 @@
 
 ## Quy ước đang dùng
 
-- Nhánh làm việc cho nghiên cứu này: `research/gojo-limitless-vfx`. **Không làm trên `main`.**
+- Phần knowledge (chỉ `.msw-agent/memory/`, không kèm code dự án) nằm trên nhánh riêng **`knowledge/gojo-limitless`**, đã push lên `origin` (`nhatnam201104/graduate`), commit `6b934ad`. Nhánh này tách từ `main` và chỉ chứa 12 file memory. **Không làm trên `main`.**
+- Remote: `https://github.com/nhatnam201104/graduate.git`. Push dùng token inline trong URL (`x-access-token:$FACEGATE_GITHUB_TOKEN`), **không** ghi token vào `.git/config`.
 - Ảnh minh hoạ sinh bằng SVG viết tay (không dùng ảnh có bản quyền của MAPPA/JJK), render kiểm tra bằng `google-chrome --headless --screenshot`.
 - Mọi khẳng định về chiêu thức trong `gojo-limitless/README.md` đều kèm số chương/tập; chỗ nào chỉ là suy đoán của fan thì ghi rõ `[fan]`.
 
