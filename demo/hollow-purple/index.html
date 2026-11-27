@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo — Hư Thức "Tử" (虚式「茈」) · Gojo Satoru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #04050b;
+    --panel: rgba(13, 16, 32, .82);
+    --line: rgba(148, 163, 184, .18);
+    --ink: #eef1ff;
+    --dim: #98a1cc;
+    --blue: #35b6ff;
+    --red: #ff2a3a;
+    --purple: #b44cff;
+    --ok: #56e39f;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink);
+    font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  }
+  #stage { position: fixed; inset: 0; }
+  canvas { display: block; }
+
+  .hud { position: fixed; inset: 0; pointer-events: none; display: flex; flex-direction: column;
+         justify-content: space-between; padding: 22px 26px; }
+
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+  .title-block h1 { margin: 0; font-size: 17px; letter-spacing: -.01em; font-weight: 600; }
+  .title-block h1 span { color: var(--purple); }
+  .title-block p { margin: 4px 0 0; font-size: 12px; color: var(--dim); }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .badge { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; padding: 4px 9px;
+           border: 1px solid var(--line); border-radius: 999px; color: var(--dim); background: rgba(4,5,11,.6); }
+  .badge.on { color: var(--ok); border-color: rgba(86,227,159,.4); }
+  .badge.warn { color: #ffcf7a; border-color: rgba(255,207,122,.35); }
+
+  .panel { pointer-events: auto; position: fixed; left: 26px; bottom: 26px; width: 322px;
+           background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+           padding: 16px 18px 18px; backdrop-filter: blur(14px); }
+  .panel h2 { margin: 0 0 12px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); font-weight: 600; }
+
+  .steps { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+  .steps li { display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; color: var(--dim);
+              padding: 8px 10px; border-radius: 9px; border: 1px solid transparent; transition: .18s; }
+  .steps li .n { flex: 0 0 18px; height: 18px; border-radius: 50%; border: 1px solid var(--line);
+                 display: grid; place-items: center; font-size: 10px; font-family: 'JetBrains Mono', monospace; }
+  .steps li.active { color: #fff; background: rgba(180,76,255,.12); border-color: rgba(180,76,255,.42); }
+  .steps li.active .n { border-color: var(--purple); color: var(--purple); }
+  .steps li.done { color: var(--ok); }
+  .steps li.done .n { border-color: var(--ok); color: var(--ok); }
+
+  .row { display: flex; gap: 8px; }
+  button { flex: 1; font: inherit; font-size: 12.5px; padding: 10px 12px; border-radius: 9px; cursor: pointer;
+           border: 1px solid var(--line); background: rgba(255,255,255,.05); color: var(--ink); transition: .16s; }
+  button:hover:not(:disabled) { background: rgba(180,76,255,.18); border-color: rgba(180,76,255,.5); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button.primary { background: linear-gradient(100deg, #6a2cff, #b44cff); border-color: transparent; font-weight: 600; }
+  button.primary:hover:not(:disabled) { filter: brightness(1.12); }
+
+  .meter { margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--dim);
+           display: flex; justify-content: space-between; }
+  .pose-line { margin-top: 10px; display: flex; align-items: center; gap: 8px; font-size: 12px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #3a4160; }
+  .dot.live { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+
+  .cam { position: fixed; right: 26px; bottom: 26px; width: 232px; border-radius: 14px; overflow: hidden;
+         border: 1px solid var(--line); background: #000; transform: scaleX(-1); }
+  .cam video { display: block; width: 100%; height: auto; opacity: .85; }
+  .cam .tag { position: absolute; left: 8px; top: 8px; transform: scaleX(-1); font-family: 'JetBrains Mono', monospace;
+              font-size: 9.5px; color: #cfd6ff; background: rgba(0,0,0,.55); padding: 2px 7px; border-radius: 5px; }
+  .cam.hidden { display: none; }
+
+  .flash { position: fixed; inset: 0; pointer-events: none; background: #fff; opacity: 0; }
+  .toast { position: fixed; left: 50%; top: 84px; transform: translateX(-50%); pointer-events: none;
+           font-size: 12.5px; padding: 8px 15px; border-radius: 999px; background: rgba(180,76,255,.16);
+           border: 1px solid rgba(180,76,255,.45); color: #f0e2ff; opacity: 0; transition: opacity .25s; }
+  .toast.show { opacity: 1; }
+  .toast.err { background: rgba(255,42,58,.14); border-color: rgba(255,42,58,.45); color: #ffd7db; }
+
+  .loading { position: fixed; inset: 0; display: grid; place-items: center; background: var(--bg); z-index: 9;
+             font-size: 13px; color: var(--dim); transition: opacity .4s; }
+  .loading.hide { opacity: 0; pointer-events: none; }
+  .spinner { width: 26px; height: 26px; margin: 0 auto 14px; border-radius: 50%;
+             border: 2px solid rgba(180,76,255,.25); border-top-color: var(--purple); animation: spin .9s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 860px) {
+    .panel { width: calc(100% - 40px); left: 20px; bottom: 20px; }
+    .cam { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+
+<div class="flash" id="flash"></div>
+<div class="toast" id="toast"></div>
+
+<div class="hud">
+  <div class="top">
+    <div class="title-block">
+      <h1>Hư Thức <span>「茈」</span> — Hollow Purple</h1>
+      <p>Demo khả thi · Gojo Satoru · 虚式「茈」</p>
+    </div>
+    <div class="badges">
+      <span class="badge" id="badge-cam">webcam: chưa bật</span>
+      <span class="badge" id="badge-pose">ấn: —</span>
+      <span class="badge" id="badge-fps">-- fps</span>
+    </div>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>Cách kích hoạt</h2>
+  <ul class="steps" id="steps">
+    <li id="step-1"><span class="n">1</span><span>Duỗi <b>ngón trỏ + ngón út</b>, các ngón còn lại gập</span></li>
+    <li id="step-2"><span class="n">2</span><span>Chụm <b>cái + trỏ</b>, đồng thời duỗi <b>ngón giữa</b></span></li>
+    <li id="step-3"><span class="n">3</span><span><b>Bung các ngón</b> ra như vụ nổ</span></li>
+  </ul>
+  <div class="row">
+    <button class="primary" id="btn-cam">Bật webcam</button>
+    <button id="btn-fire">Bắn (Space)</button>
+  </div>
+  <div class="pose-line"><span class="dot" id="pose-dot"></span><span id="pose-text">Đang chờ bàn tay…</span></div>
+  <div class="meter"><span id="m-state">trạng thái: idle</span><span id="m-time">0.0s</span></div>
+</div>
+
+<div class="cam hidden" id="cam-wrap">
+  <span class="tag">hand landmarker</span>
+  <video id="video" playsinline muted></video>
+</div>
+
+<div class="loading" id="loading">
+  <div>
+    <div class="spinner"></div>
+    <div id="loading-text">Đang nạp Three.js và shader…</div>
+  </div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/",
+    "@mediapipe/tasks-vision": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.2.3/vision_bundle.mjs"
+  }
+}
+</script>
+
+<script type="module" src="./main.mjs"></script>
+</body>
+</html>
