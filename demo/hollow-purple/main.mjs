@@ -163,7 +163,7 @@ const ORB_FRAG = /* glsl */ `
     col = mix(col, uHot, veins * 0.30);
     col += uRim * fres * (0.55 + uCharge * 0.45);
     col *= 0.72 + uCharge * 0.22;
-    col += uHot * uCore * 0.30;
+    col += uHot * uCore * 0.16;
 
     gl_FragColor = vec4(col, 0.42 + fres * 0.55 + veins * 0.12);
   }
@@ -194,13 +194,13 @@ function makeOrbMaterial(color, charge) {
   });
 }
 
-function makeSprite(color, size) {
+function makeSprite(color, size, center = 'rgba(255,255,255,0.55)') {
   const c = document.createElement('canvas');
   c.width = 128;
   c.height = 128;
   const ctx = c.getContext('2d');
   const g = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
-  g.addColorStop(0, 'rgba(255,255,255,0.55)');
+  g.addColorStop(0, center);
   g.addColorStop(0.2, color);
   g.addColorStop(0.55, color.replace(/[\d.]+\)$/, '0.35)'));
   g.addColorStop(1, 'rgba(0,0,0,0)');
@@ -236,7 +236,7 @@ redOrb.visible = false;
 rig.add(blueOrb, redOrb);
 
 const purpleOrb = new THREE.Mesh(new THREE.IcosahedronGeometry(0.52, 5), makeOrbMaterial('#9b30ff', 1));
-const purpleGlow = makeSprite('rgba(178,92,255,0.95)', 1.45);
+const purpleGlow = makeSprite('rgba(178,92,255,0.8)', 1.35, 'rgba(214,168,255,0.7)');
 purpleOrb.add(purpleGlow);
 purpleOrb.visible = false;
 rig.add(purpleOrb);
@@ -459,7 +459,7 @@ function tick() {
   S.merge += ((S.phase === 'charged' || S.phase === 'flying' ? 1 : 0) - S.merge) * Math.min(1, dt * 4.2);
 
   // hai quả cầu
-  const sep = THREE.MathUtils.lerp(0.85, 0.1, S.merge);
+  const sep = THREE.MathUtils.lerp(0.85, 0.36, S.merge);
   const orbit = Math.sin(t * 1.6) * 0.06;
   blueOrb.position.set(-sep + orbit, orbit * 0.7, 0.06);
   redOrb.position.set(sep - orbit, -orbit * 0.5, -0.06);
@@ -487,7 +487,7 @@ function tick() {
   if (S.phase === 'charged') {
     purpleOrb.visible = true;
     purpleOrb.position.set(0, 0, 0);
-    const grow = 0.16 + S.merge * 0.34 + Math.sin(t * 14) * 0.02 * S.merge;
+    const grow = 0.16 + S.merge * 0.24 + Math.sin(t * 14) * 0.02 * S.merge;
     purpleOrb.scale.setScalar(grow);
   }
 
@@ -500,7 +500,7 @@ function tick() {
     purpleOrb.rotation.x += dt * 5;
     purpleOrb.rotation.y += dt * 3.4;
     purpleOrb.material.uniforms.uCharge.value = 1.7;
-    purpleOrb.material.uniforms.uCore.value = 0.10 + Math.sin(t * 20) * 0.06;
+    purpleOrb.material.uniforms.uCore.value = 0.05 + Math.sin(t * 20) * 0.04;
     trail.material.opacity = Math.min(1, S.flight * 3) * 1.0;
     updateTrail();
 
@@ -529,7 +529,7 @@ function tick() {
   camera.position.y = 1.45 + Math.sin(t * 0.44) * 0.05;
   camera.lookAt(0, 1.15, 0);
 
-  bloom.strength = 0.62 + S.charge * 0.26 + (S.phase === 'flying' ? 0.18 : 0);
+  bloom.strength = 0.56 + S.charge * 0.14 + (S.phase === 'flying' ? 0.26 : 0);
 
   composer.render();
   requestAnimationFrame(tick);
