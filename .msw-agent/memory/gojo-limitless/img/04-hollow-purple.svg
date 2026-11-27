@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="22" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="blur6"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="blur2"><feGaussianBlur stdDeviation="2"/></filter>
+<marker id="arrW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8ecff"/></marker>
+<marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5cc8ff"/></marker>
+<marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff5a5a"/></marker>
+<marker id="arrP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77dff"/></marker>
+<radialGradient id="p1b"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="0.5" stop-color="#35b6ff" stop-opacity="1"/><stop offset="1" stop-color="#0b48ff" stop-opacity="0"/></radialGradient><radialGradient id="p1r"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="0.5" stop-color="#ff2a3a" stop-opacity="1"/><stop offset="1" stop-color="#9a0018" stop-opacity="0"/></radialGradient><radialGradient id="p2"><stop offset="0" stop-color="#ffffff" stop-opacity="1"/><stop offset="0.3" stop-color="#f0d8ff" stop-opacity="1"/><stop offset="0.6" stop-color="#a43cff" stop-opacity="1"/><stop offset="0.9" stop-color="#4b0f8f" stop-opacity="0.9"/><stop offset="1" stop-color="#4b0f8f" stop-opacity="0"/></radialGradient><radialGradient id="p3"><stop offset="0" stop-color="#ffffff" stop-opacity="1"/><stop offset="0.25" stop-color="#f3e2ff" stop-opacity="1"/><stop offset="0.6" stop-color="#9b30ff" stop-opacity="1"/><stop offset="0.92" stop-color="#3a0a70" stop-opacity="0.9"/><stop offset="1" stop-color="#3a0a70" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="675" fill="#07040d"/>
+<text x="40" y="52" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="28" fill="#d6a8ff" font-weight="bold" text-anchor="start" opacity="1">Hư Thức “Tử” (虚式「茈」 · Hollow Technique: Purple)</text>
+<text x="40" y="82" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="15" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">Va chạm Thương (hội tụ) × Hách (phân kỳ) → sinh “khối lượng ảo” bị đẩy về phía mục tiêu, xoá sạch mọi thứ trên đường đi</text>
+<rect x="40" y="110" width="270" height="300" rx="14" fill="#120a1f" stroke="#3a2a5a"/>
+<rect x="325" y="110" width="270" height="300" rx="14" fill="#120a1f" stroke="#3a2a5a"/>
+<rect x="610" y="110" width="270" height="300" rx="14" fill="#120a1f" stroke="#3a2a5a"/>
+<rect x="895" y="110" width="270" height="300" rx="14" fill="#120a1f" stroke="#3a2a5a"/>
+<circle cx="120" cy="260" r="38" fill="url(#p1b)" filter="url(#glow)"/>
+<circle cx="230" cy="260" r="30" fill="url(#p1r)" filter="url(#glow)"/>
+<line x1="162" y1="260" x2="180" y2="260" stroke="#5cc8ff" stroke-width="3" marker-end="url(#arrB)"/>
+<line x1="196" y1="260" x2="182" y2="260" stroke="#ff5a5a" stroke-width="3" marker-end="url(#arrR)"/>
+<text x="120" y="320" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#8fd6ff" font-weight="normal" text-anchor="middle" opacity="1">Thương</text>
+<text x="230" y="320" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#ff9a9a" font-weight="normal" text-anchor="middle" opacity="1">Hách</text>
+<text x="175.0" y="380" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#e8ecff" font-weight="bold" text-anchor="middle" opacity="1">① Hai quả cầu tiến lại</text>
+<path d="M398.0,250 A62,62 0 0,1 522.0,250" fill="none" stroke="#35b6ff" stroke-width="4" opacity=".7"/>
+<path d="M522.0,250 A62,62 0 0,1 398.0,250" fill="none" stroke="#ff2a3a" stroke-width="4" opacity=".7"/>
+<circle cx="460.0" cy="250" r="62" fill="url(#p2)" filter="url(#glowBig)"/>
+<polyline points="408.5,269.2 396.3,273.5 382.7,270.6 373.6,280.5 357.5,264.0 344.6,269.6 342.2,310.8" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<polyline points="408.8,229.9 399.6,213.5 381.7,235.4 370.0,235.5 360.2,233.8 360.4,193.5 333.0,224.1" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<polyline points="448.4,196.2 434.0,186.9 461.7,166.7 461.2,156.9 437.3,148.2 454.4,129.9 428.3,124.4" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<polyline points="405.3,244.6 394.4,253.6 385.4,234.2 376.2,239.5 365.0,263.7 354.8,233.0 342.2,264.2" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<polyline points="514.8,244.9 528.6,259.8 536.4,233.6 546.4,254.0 552.9,223.4 567.3,262.1 579.7,223.9" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<polyline points="492.5,294.4 499.5,308.2 522.4,306.2 507.4,329.4 537.7,318.8 523.9,350.8 559.6,339.2" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<polyline points="494.0,206.8 507.7,208.0 501.6,187.4 527.6,194.2 505.3,163.4 516.2,155.5 516.8,145.6" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<polyline points="512.3,267.1 523.0,264.3 527.7,282.4 541.1,276.6 552.1,272.5 561.1,269.6 560.8,296.6" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<polyline points="407.8,232.7 398.5,230.4 380.6,240.1 369.3,223.3 365.9,200.1 348.5,212.5 349.0,180.1" fill="none" stroke="#e9c8ff" stroke-width="1.6"/>
+<text x="460.0" y="380" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#e8ecff" font-weight="bold" text-anchor="middle" opacity="1">② Hợp nhất, phóng điện tím</text>
+<circle cx="763" cy="250" r="70" fill="#a43cff" opacity="0.180"/>
+<circle cx="741" cy="250" r="61" fill="#a43cff" opacity="0.155"/>
+<circle cx="719" cy="250" r="52" fill="#a43cff" opacity="0.130"/>
+<circle cx="697" cy="250" r="43" fill="#a43cff" opacity="0.105"/>
+<circle cx="675" cy="250" r="34" fill="#a43cff" opacity="0.080"/>
+<circle cx="653" cy="250" r="25" fill="#a43cff" opacity="0.055"/>
+<circle cx="785" cy="250" r="72" fill="url(#p3)" filter="url(#glowBig)"/>
+<line x1="640" y1="345" x2="850" y2="345" stroke="#c77dff" stroke-width="3" marker-end="url(#arrP)"/>
+<text x="745.0" y="380" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#e8ecff" font-weight="bold" text-anchor="middle" opacity="1">③ Khối lượng ảo lao đi</text>
+<path d="M895,310 L955,280 L985,300 L1165,270 L1165,360 L895,360 Z" fill="#2a2238"/>
+<rect x="895" y="205" width="270" height="90" fill="#120a1f"/>
+<path d="M895,295 L1165,295 L1165,205 L895,205" fill="none"/>
+<path d="M895,295 Q1030.0,340 1165,295" fill="#0a0612" stroke="#c77dff" stroke-width="2" filter="url(#glow)"/>
+<polygon points="920,190 906,205 934,205" fill="#2f4a3a" opacity=".4"/>
+<polygon points="1125,190 1111,205 1139,205" fill="#2f4a3a" opacity=".4"/>
+<text x="1030.0" y="250" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="12" fill="#9a86c0" font-weight="normal" text-anchor="middle" opacity="1">(vùng bị xoá)</text>
+<text x="1030.0" y="380" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#e8ecff" font-weight="bold" text-anchor="middle" opacity="1">④ Rãnh xoá trơn, không cháy</text>
+<text x="40" y="450" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="15" fill="#d6a8ff" font-weight="bold" text-anchor="start" opacity="1">Biến thể:</text>
+<text x="40" y="476" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#d6dcff" font-weight="normal" text-anchor="start" opacity="1">• Thường (lược ấn &amp; chú): quét sạch rừng (vs Hanami, Ep.20), xuyên người Toji (Ep.28).</text>
+<text x="40" y="500" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#d6dcff" font-weight="normal" text-anchor="start" opacity="1">• 200%: đủ ấn tay + chú ngữ, Utahime khuếch đại → bắn từ Shibuya tới Shinjuku (vs Sukuna, Ch.223).</text>
+<text x="40" y="524" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#d6dcff" font-weight="normal" text-anchor="start" opacity="1">• Không giới hạn / nổ toàn hướng: bắn Hách vào quả Thương còn sót → nổ khắp Shinjuku (Ch.235).</text>
+<text x="830" y="450" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="15" fill="#d6a8ff" font-weight="bold" text-anchor="start" opacity="1">Ấn tay:</text>
+<text x="830" y="476" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#d6dcff" font-weight="normal" text-anchor="start" opacity="1">Ngón trỏ + út duỗi → chụm</text>
+<text x="830" y="496" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#d6dcff" font-weight="normal" text-anchor="start" opacity="1">cái + trỏ, giữa duỗi → bung</text>
+<text x="830" y="516" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#d6dcff" font-weight="normal" text-anchor="start" opacity="1">ngón tay như vụ nổ.</text>
+<text x="40" y="572" font-family="Noto Sans CJK JP, Noto Sans JP, IPAGothic, DejaVu Sans, sans-serif" font-size="15" fill="#e8ecff" font-weight="normal" text-anchor="start" opacity="1">Chú ngữ: 「九綱」「偏光」「烏と声明」「表裏の間」</text>
+<text x="40" y="596" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">Chín sợi dây · Ánh sáng phân cực · Quạ và thanh minh · Khoảng giữa trước và sau</text>
+<text x="40" y="657" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="12" fill="#6f78a8" font-weight="normal" text-anchor="start" opacity="1">Nguồn: JJK Wiki “Hollow Technique: Purple” — Fanbook p.158, Ch.52 / Ep.20, Ch.75 / Ep.28, Ch.223, Ch.235. Minh hoạ tự vẽ.</text>
+</svg>

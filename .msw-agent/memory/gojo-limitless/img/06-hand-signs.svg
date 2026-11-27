@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="glowBig" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="22" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="blur6"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="blur2"><feGaussianBlur stdDeviation="2"/></filter>
+<marker id="arrW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8ecff"/></marker>
+<marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5cc8ff"/></marker>
+<marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff5a5a"/></marker>
+<marker id="arrP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c77dff"/></marker>
+
+</defs>
+<rect width="1200" height="675" fill="#0a0c18"/>
+<text x="40" y="52" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="28" fill="#e8ecff" font-weight="bold" text-anchor="start" opacity="1">Ấn tay (sơ đồ giản lược, nhìn từ phía người xem)</text>
+<text x="40" y="82" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="15" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">Dùng làm cổng nhận diện cử chỉ (MediaPipe Hand Landmarker 21 điểm) — độ tin cậy ghi ở từng ô</text>
+<rect x="40" y="110" width="250" height="420" rx="16" fill="#e6e6ff14" stroke="#e6e6ff"/>
+<text x="165" y="142" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="17" fill="#ffffff" font-weight="bold" text-anchor="middle" opacity="1">Vô Lượng Không Xứ</text>
+<text x="165" y="515" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#cfd6ff" font-weight="normal" text-anchor="middle" opacity="1">✅ chắc chắn (Ch.15/Ep.7, Ch.89)</text>
+<rect x="330" y="110" width="250" height="420" rx="16" fill="#b44cff14" stroke="#b44cff"/>
+<text x="455" y="142" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="17" fill="#ffffff" font-weight="bold" text-anchor="middle" opacity="1">Tử — bước 1</text>
+<text x="455" y="515" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#cfd6ff" font-weight="normal" text-anchor="middle" opacity="1">✅ theo wiki</text>
+<rect x="620" y="110" width="250" height="420" rx="16" fill="#b44cff14" stroke="#b44cff"/>
+<text x="745" y="142" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="17" fill="#ffffff" font-weight="bold" text-anchor="middle" opacity="1">Tử — bước 2 (bung)</text>
+<text x="745" y="515" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#cfd6ff" font-weight="normal" text-anchor="middle" opacity="1">✅ theo wiki</text>
+<rect x="910" y="110" width="250" height="420" rx="16" fill="#5cc8ff14" stroke="#5cc8ff"/>
+<text x="1035" y="142" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="17" fill="#ffffff" font-weight="bold" text-anchor="middle" opacity="1">Thương / Hách</text>
+<text x="1035" y="515" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#cfd6ff" font-weight="normal" text-anchor="middle" opacity="1">⚠️ chưa thống nhất nguồn</text>
+<rect x="110" y="300" width="110" height="120" rx="26" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="116" y="218" width="26" height="92" rx="13.0" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="168" y="294" width="24" height="34" rx="12.0" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2"/>
+<rect x="192" y="294" width="22" height="34" rx="11.0" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2"/>
+<rect x="142" y="206" width="26" height="104" rx="13" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2" transform="rotate(-24 155 310)"/>
+<rect x="114" y="340" width="56" height="24" rx="12" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2" transform="rotate(-10 140 352)"/>
+<text x="165" y="460" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#e8ecff" font-weight="bold" text-anchor="middle" opacity="1">ngón giữa quấn ngón trỏ</text>
+<text x="56" y="480" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="12" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">Đế Thích Thiên ấn; cái, áp út, út gập</text>
+<rect x="400" y="300" width="110" height="120" rx="26" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="406" y="218" width="26" height="92" rx="13.0" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="432" y="294" width="26" height="34" rx="13.0" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2"/>
+<rect x="458" y="294" width="24" height="34" rx="12.0" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2"/>
+<rect x="482" y="234" width="22" height="76" rx="11.0" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="404" y="340" width="56" height="24" rx="12" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2" transform="rotate(-10 430 352)"/>
+<text x="455" y="460" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#e8ecff" font-weight="bold" text-anchor="middle" opacity="1">trỏ + út duỗi</text>
+<text x="346" y="480" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="12" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">các ngón còn lại gập</text>
+<rect x="710" y="300" width="110" height="120" rx="26" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<path d="M720,310 C706,250 646,260 680,310" fill="none" stroke="#f1d9c6" stroke-width="26" stroke-linecap="round"/>
+<rect x="742" y="206" width="26" height="104" rx="13.0" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="768" y="294" width="24" height="34" rx="12.0" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2"/>
+<rect x="792" y="294" width="22" height="34" rx="11.0" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2"/>
+<path d="M710,370 C680,350 660,320 676,306" fill="none" stroke="#f1d9c6" stroke-width="26" stroke-linecap="round"/>
+<circle cx="676" cy="308" r="9" fill="#ffffff" opacity=".8" filter="url(#glow)"/>
+<text x="765" y="460" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#e8ecff" font-weight="bold" text-anchor="middle" opacity="1">chụm cái + trỏ, giữa duỗi</text>
+<text x="636" y="480" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="12" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">rồi bung các ngón ra như vụ nổ</text>
+<rect x="980" y="300" width="110" height="120" rx="26" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="986" y="218" width="26" height="92" rx="13.0" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="1012" y="206" width="26" height="104" rx="13.0" fill="#f1d9c6" stroke="#7a5a48" stroke-width="2"/>
+<rect x="1038" y="294" width="24" height="34" rx="12.0" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2"/>
+<rect x="1062" y="294" width="22" height="34" rx="11.0" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2"/>
+<rect x="984" y="340" width="56" height="24" rx="12" fill="#e2c3ad" stroke="#7a5a48" stroke-width="2" transform="rotate(-10 1010 352)"/>
+<text x="1035" y="460" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#e8ecff" font-weight="bold" text-anchor="middle" opacity="1">trỏ + giữa dựng</text>
+<text x="926" y="480" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="12" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">fan: trỏ = Hách, giữa = Thương;</text>
+<text x="926" y="498" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="12" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">nguồn khác: xoè bàn tay</text>
+<text x="40" y="580" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="14" fill="#ffd7a0" font-weight="normal" text-anchor="start" opacity="1">Lưu ý: Gojo thường LƯỢC BỎ ấn tay &amp; chú ngữ; khi dùng đủ thì sản lượng tăng (ví dụ Tử 200%).</text>
+<text x="40" y="606" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="13" fill="#9aa4d4" font-weight="normal" text-anchor="start" opacity="1">Sơ đồ chỉ mô tả cấu hình ngón tay, không mô phỏng chính xác khung hình anime.</text>
+<text x="40" y="657" font-family="DejaVu Sans, Noto Sans, Segoe UI, sans-serif" font-size="12" fill="#6f78a8" font-weight="normal" text-anchor="start" opacity="1">Nguồn: JJK Wiki “Hollow Technique: Purple” (mô tả ấn), wikiHow / r/Jujutsushi (Đế Thích Thiên ấn). Minh hoạ tự vẽ.</text>
+</svg>

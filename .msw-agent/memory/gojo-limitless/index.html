@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vô Hạ Hạn — bộ nhớ nghiên cứu (Gojo Satoru)</title>
+<style>
+  :root {
+    --bg: #06070f; --panel: #0d1020; --line: #1e2440;
+    --ink: #e9edff; --dim: #98a1cc; --blue: #35b6ff; --red: #ff2a3a; --purple: #b44cff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif; line-height: 1.55; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 56px 24px 96px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 40px; }
+  .kicker { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--dim); }
+  h1 { font-size: clamp(28px, 4vw, 44px); margin: 10px 0 12px; letter-spacing: -.02em; }
+  h1 .accent { background: linear-gradient(92deg, var(--blue), var(--purple) 55%, var(--red));
+               -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { color: var(--dim); max-width: 70ch; margin: 0; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 18px; }
+  .tag { font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--dim); }
+  .tag.ok { color: #9be7b4; border-color: #1e4030; background: #0b1a13; }
+  .note { border-left: 3px solid var(--purple); background: #100a1c; padding: 16px 20px; border-radius: 0 10px 10px 0;
+          margin: 32px 0 44px; color: #d9c9f2; font-size: 14.5px; }
+  .note b { color: #fff; }
+  section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+  .sec-num { font-family: ui-monospace, "SF Mono", monospace; font-size: 12px; color: var(--dim); letter-spacing: .12em; }
+  h2 { font-size: 22px; margin: 0; letter-spacing: -.01em; }
+  .sec-sub { color: var(--dim); font-size: 14.5px; margin: 4px 0 18px; max-width: 78ch; }
+  figure { margin: 0 0 18px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption { padding: 12px 16px; font-size: 13.5px; color: var(--dim); border-top: 1px solid var(--line); }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: var(--panel); }
+  .card h3 { margin: 0 0 6px; font-size: 15px; }
+  .card p { margin: 0; font-size: 13.5px; color: var(--dim); }
+  .card.b { border-color: #123a55; } .card.r { border-color: #4a1620; } .card.p { border-color: #3a1a55; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--dim); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: .08em; }
+  code { font-family: ui-monospace, "SF Mono", monospace; font-size: 12.5px; background: #141a30; padding: 1px 6px; border-radius: 5px; }
+  a { color: var(--blue); text-decoration: none; border-bottom: 1px solid #1e4a66; }
+  a:hover { border-bottom-color: var(--blue); }
+  footer { border-top: 1px solid var(--line); padding-top: 22px; color: var(--dim); font-size: 13px; }
+  .swatches { display: flex; gap: 8px; margin-top: 10px; }
+  .sw { width: 26px; height: 26px; border-radius: 5px; border: 1px solid #ffffff22; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Bộ nhớ dài hạn · .msw-agent/memory</div>
+  <h1>Vô Hạ Hạn <span class="accent">無下限呪術</span> — Gojo Satoru</h1>
+  <p class="lede">Tài liệu chuẩn về cơ chế từng chiêu, ấn tay, chú ngữ và mốc chương/tập gốc, kèm 7 ảnh minh hoạ tự vẽ.
+  Đây là mức hiểu hiện tại của agent, dùng làm căn cứ trước khi dựng hiệu ứng.</p>
+  <div class="meta">
+    <span class="tag ok">✅ 5 chiêu đã đối chiếu wiki</span>
+    <span class="tag ok">✅ 7 ảnh đã render &amp; tự kiểm tra</span>
+    <span class="tag ok">✅ 20+ repo source đã xác minh link</span>
+    <span class="tag">nhánh research/gojo-limitless-vfx</span>
+    <span class="tag">2026-11-27</span>
+  </div>
+</header>
+
+<div class="note">
+  <b>Nguyên tắc dựng hình:</b> hiệu ứng phải đúng <i>cơ chế</i> chứ không chỉ đúng màu.
+  Ba lỗi phổ biến: vẽ Vô Hạn thành khiên phát sáng · vẽ Tử thành tia laser · vẽ Thương thành quả cầu không hút gì.
+</div>
+
+<section id="map">
+  <div class="sec-head"><span class="sec-num">00</span><h2>Bản đồ chiêu thức</h2></div>
+  <p class="sec-sub">Vô Hạ Hạn đưa khái niệm “vô hạn” vào thực tại. Chỉ người có thêm Lục Nhãn mới làm chủ được cả 5 bậc.</p>
+  <figure>
+    <img src="img/00-overview.svg" alt="Bản đồ chiêu thức Vô Hạ Hạn">
+    <figcaption>Vô Hạn (trung tính) → Thương (hội tụ) / Hách (phân kỳ) → Tử (va chạm) → Vô Lượng Không Xứ (lãnh địa).</figcaption>
+  </figure>
+</section>
+
+<section id="infinity">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Vô Hạn — 無限 · Infinity</h2></div>
+  <p class="sec-sub">Sức mạnh <b>DỪNG</b>: chia khoảng cách thành vô hạn lần → vật tiến tới chậm dần và không bao giờ chạm. Gần như vô hình.</p>
+  <figure>
+    <img src="img/01-infinity.svg" alt="Minh hoạ Vô Hạn">
+    <figcaption>Vận tốc tiến về 0 theo cấp số nhân; đòn đánh khựng lại cách Gojo vài cm. Ch.14 pp.8-10 / Ep.7.</figcaption>
+  </figure>
+</section>
+
+<section id="blue">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Thương — 蒼 · Blue</h2></div>
+  <p class="sec-sub">Thuận chuyển: không gian <b>hội tụ</b> về một điểm → lực HÚT như hố đen. Chú ngữ “Pha · Hoàng hôn · Con ngươi trí tuệ”.</p>
+  <figure>
+    <img src="img/02-blue.svg" alt="Minh hoạ Thương">
+    <figcaption>Phải thấy vật thể bị kéo vào — đường sức xoắn ốc bán được “hút”. Ch.75 p.3 / Ep.28.</figcaption>
+  </figure>
+</section>
+
+<section id="red">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Hách — 赫 · Red</h2></div>
+  <p class="sec-sub">Nghịch chuyển: năng lượng dương, không gian <b>phân kỳ</b> → lực ĐẨY. Quả cầu đỏ nhỏ rồi nổ; sản lượng gấp đôi Thương.</p>
+  <figure>
+    <img src="img/03-red.svg" alt="Minh hoạ Hách">
+    <figcaption>Mọi hạt phải bắn ra ngoài; điều khiển được thời điểm nổ (đánh sau lưng Sukuna). Ch.75 / Ep.28.</figcaption>
+  </figure>
+</section>
+
+<section id="purple">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Hư Thức “Tử” — 虚式「茈」 · Hollow Purple</h2></div>
+  <p class="sec-sub">Va chạm Thương × Hách → “khối lượng ảo” lao đi, <b>xoá sạch</b> vật chất trên đường đi. Có bản thường, bản 200%, bản nổ toàn hướng.</p>
+  <figure>
+    <img src="img/04-hollow-purple.svg" alt="Minh hoạ Tử">
+    <figcaption>Là vật thể có mạch năng lượng cuộn bên trong, không phải tia laser; đường đi khoét rãnh trơn. Ch.52 / Ch.235.</figcaption>
+  </figure>
+</section>
+
+<section id="void">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Vô Lượng Không Xứ — 無量空処 · Unlimited Void</h2></div>
+  <p class="sec-sub">Lãnh địa: hố đen lớn, thiên hà xa, vô số mảng sáng trắng. Mục tiêu bị ép xử lý thông tin vô hạn → bất động.</p>
+  <figure>
+    <img src="img/05-unlimited-void.svg" alt="Minh hoạ Vô Lượng Không Xứ">
+    <figcaption>Ấn Đế Thích Thiên; bản 0,2 giây ở Shibuya ≈ nửa năm thông tin. Ch.15 / Ep.7, Ch.83-84.</figcaption>
+  </figure>
+</section>
+
+<section id="signs">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Ấn tay</h2></div>
+  <p class="sec-sub">Sơ đồ cấu hình ngón tay để làm cổng nhận diện cử chỉ, kèm mức độ tin cậy của từng ấn.</p>
+  <figure>
+    <img src="img/06-hand-signs.svg" alt="Sơ đồ ấn tay">
+    <figcaption>Ấn Vô Lượng Không Xứ và 2 bước ấn Tử có nguồn rõ; ấn Thương/Hách chưa thống nhất giữa các nguồn.</figcaption>
+  </figure>
+</section>
+
+<section id="pillars">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Bốn điểm dễ dựng sai</h2></div>
+  <div class="grid">
+    <div class="card"><h3>Vô Hạn không phải khiên</h3><p>Không màu, không phát sáng. Chỉ khựng chuyển động + méo nhẹ lớp không gian sát người.</p></div>
+    <div class="card b"><h3>Thương cần “vật bị hút”</h3><p>Quả cầu xanh một mình vô nghĩa nếu không có mảnh vụn, bụi, tia sáng cong vào tâm.</p></div>
+    <div class="card r"><h3>Hách đi ra ngoài</h3><p>Tương phản hướng với Thương: hạt và tia bắn ra, cầu nhỏ rồi mới nổ.</p></div>
+    <div class="card p"><h3>Tử là vật thể</h3><p>Khối cầu tím có mạch cuộn bên trong, khoét rãnh trơn — không phải tia sáng xuyên thẳng.</p></div>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="sec-head"><span class="sec-num">08</span><h2>Source code tham khảo</h2></div>
+  <p class="sec-sub">Danh sách đầy đủ trong <code>sources.md</code>. Ba repo hợp nhất với dự án Three.js + Hand Landmarker:</p>
+  <table>
+    <thead><tr><th>Repo</th><th>Nội dung</th><th>Vì sao hợp</th></tr></thead>
+    <tbody>
+      <tr><td><code>reinesana/SAT0RU</code></td><td>Blue, Red, Purple, Infinite Void</td><td>Nhiều sao nhất (317), đủ chuỗi chiêu</td></tr>
+      <tr><td><code>m0Corut/jjk-limitless-ar</code></td><td>Red → Blue → hợp nhất → Purple</td><td>Có đúng thứ tự dung hợp</td></tr>
+      <tr><td><code>collidingScopes/threejs-handtracking-101</code></td><td>Khung Three.js + MediaPipe</td><td>Nền sạch để gắn hiệu ứng</td></tr>
+    </tbody>
+  </table>
+  <p class="sec-sub" style="margin-top:16px">Không tìm thấy source cho Gojo trên Shadertoy, CodePen hay TouchDesigner (chỉ có video, không có file dự án).
+  Vô Hạn và Vô Lượng Không Xứ đúng mô tả wiki thì phải tự viết shader.</p>
+</section>
+
+<footer>
+  Nguồn học thuật: Jujutsu Kaisen Wiki (Limitless, Six Eyes, Blue, Red, Hollow Technique: Purple, Unlimited Void) — số chương/tập ghi trong từng mục.
+  Ảnh minh hoạ do MSW Agent tự vẽ bằng SVG, không dùng hình có bản quyền của MAPPA. Màu hex là lựa chọn để dựng hình, không phải màu chính thức.
+</footer>
+
+</div>
+</body>
+</html>
